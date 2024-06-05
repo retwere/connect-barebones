@@ -2,10 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script src="https://deploy-preview-1440--pinecone-connect.netlify.app/embed.js"></script>
+    <script src="https://connect.pinecone.io/embed.js"></script>
     <title>Test Integration</title>
   </head>
   <body>
+    <p>
+      This application demonstrates the usage of the Pinecone Connect widget and popup. These are
+      two alternative methods for obtaining a Pinecone API key. For more details, see the
+      <a href="https://docs.pinecone.io/integrations/build-integration/connect-your-users-to-pinecone">docs</a>.
+    </p>
+
+    <p>The Pinecone Connect widget may be embedded in the page as demonstrated below.</p>
+
     <div id="widget"></div>
     <script>
       connectToPinecone(
@@ -13,6 +21,12 @@
         {integrationId: 'test', container: document.getElementById('widget')}
       )
     </script>
+
+    <p>
+      The Pinecone Connect popup provides an <code>open()</code> function that should be used in an
+      onclick event handler.
+    </p>
+
     <script>
       const popup = ConnectPopup({
         integrationId: 'test',
@@ -23,5 +37,6 @@
     <div id="popup">
       <button onclick="popup.open()">Open Popup</button>
     </div>
+
   </body>
 </html>
