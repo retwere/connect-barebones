@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://deploy-preview-1440--pinecone-connect.netlify.app/embed.js"></script>
+    <title>Test Integration</title>
+  </head>
+  <body>
+    <div id="widget"></div>
+    <script>
+      connectToPinecone(
+        (key) => console.log(`Connected to Pinecone with key: ${key}`),
+        {integrationId: 'test', container: document.getElementById('widget')}
+      )
+    </script>
+    <script>
+      const popup = ConnectPopup({
+        integrationId: 'test',
+        onConnect: ({key}) => console.log(`Connected to Pinecone with key: ${key}`),
+        onCancel: () => console.log('User cancelled connection')
+      });
+    </script>
+    <div id="popup">
+      <button onclick="popup.open()">Open Popup</button>
+    </div>
+  </body>
+</html>
